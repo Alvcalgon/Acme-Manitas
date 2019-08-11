@@ -29,9 +29,14 @@ public class CustomisationService {
 	// Simple CRUD methods -----------------------------
 	public Customisation save(final Customisation customisation) {
 		Assert.notNull(customisation);
-		Assert.isTrue(customisation.getId() != 0 && this.find().getId() == customisation.getId());
+		Assert.isTrue(customisation.getId() != 0);
 
 		final Customisation result;
+		final Customisation find;
+
+		find = this.find();
+
+		Assert.isTrue(find.getId() == customisation.getId());
 
 		result = this.customisationRepository.save(customisation);
 
