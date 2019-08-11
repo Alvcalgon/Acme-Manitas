@@ -1,0 +1,27 @@
+
+package repositories;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import domain.Tutorial;
+
+@Repository
+public interface TutorialRepository extends JpaRepository<Tutorial, Integer> {
+
+	@Query("select t from Tutorial t join t.sponsorShips s where s.id = ?1")
+	Tutorial findTutorialBySponsorship(int id);
+
+	@Query("select t from Tutorial t join t.sections s where s.id = ?1")
+	Tutorial findTutorialBySection(int id);
+
+	@Query("select t from Tutorial t where t.handyWorker.id = ?1")
+	Page<Tutorial> findTutorialByHandyWorker(int id, Pageable pageable);
+
+	@Query("select t from Tutorial t")
+	Page<Tutorial> findAllTutorialPageable(Pageable pageable);
+
+}
