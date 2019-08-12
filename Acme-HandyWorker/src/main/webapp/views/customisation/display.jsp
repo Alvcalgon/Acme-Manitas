@@ -14,10 +14,10 @@
 	<jstl:out value="${customisation.systemName}" />
 </p>
 
-<div class="banner" >
-	<p> <strong> <spring:message code="customisation.banner" />: </strong> </p>
-	<img src="${customisation.banner}" alt="Banner" width="500" height="200" />
-</div>
+<p>
+	<strong> <spring:message code="customisation.banner" />: </strong>
+	<jstl:out value="${customisation.banner}" />
+</p>
 
 <p>
 	<strong> <spring:message code="customisation.welcomeMessageEn" />: </strong>
