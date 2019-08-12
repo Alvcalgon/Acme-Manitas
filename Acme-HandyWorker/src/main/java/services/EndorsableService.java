@@ -16,6 +16,7 @@ import org.springframework.util.Assert;
 import repositories.EndorsableRepository;
 import security.LoginService;
 import security.UserAccount;
+import domain.Customisation;
 import domain.Endorsable;
 import domain.Endorsement;
 
@@ -33,6 +34,9 @@ public class EndorsableService {
 
 	@Autowired
 	private CustomisationService	customisationService;
+
+	@Autowired
+	private UtilityService			utilityService;
 
 
 	// Constructors ------------------------------------
@@ -145,12 +149,13 @@ public class EndorsableService {
 	private List<Integer> positiveNegativeWordNumbers(final Collection<Endorsement> receivedEndorsements) {
 		Assert.isTrue(receivedEndorsements != null && receivedEndorsements.size() > 0);
 
+		final Customisation find = this.customisationService.find();
 		final List<Integer> results = new ArrayList<Integer>();
 		String comments = "";
 		String[] words = {};
 		Integer positive = 0, negative = 0;
-		final List<String> positive_ls = new ArrayList<>(this.customisationService.find().getPositiveWords());
-		final List<String> negative_ls = new ArrayList<>(this.customisationService.find().getNegativeWords());
+		final List<String> positive_ls = this.utilityService.ListByString(find.getPositiveWords());
+		final List<String> negative_ls = this.utilityService.ListByString(find.getNegativeWords());
 
 		for (final Endorsement e : receivedEndorsements) {
 			comments = e.getComments();
@@ -168,5 +173,4 @@ public class EndorsableService {
 
 		return results;
 	}
-
 }

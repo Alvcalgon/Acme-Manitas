@@ -50,31 +50,30 @@
 	<jstl:out value="${customisation.maxFinderResults}" />
 </p>
 
-<display:table name="customisation.creditCardMakes" id="row" requestURI="customisation/administrator/display.do" pagesize="5" class="displaytag">
-	<display:column value="${row}" titleKey="customisation.creditCardMakes" />
-</display:table>
+<p>
+	<strong> <spring:message code="customisation.creditCardMakes" />: </strong>
+	<jstl:out value="${customisation.creditCardMakes}" />
+</p>
 
-<display:table name="customisation.positiveWords" id="row" requestURI="customisation/administrator/display.do" pagesize="5" class="displaytag">
-	<display:column value="${row}" titleKey="customisation.positiveWords"/>
-</display:table>
+<p>
+	<strong> <spring:message code="customisation.positiveWords" />: </strong>
+	<jstl:out value="${customisation.positiveWords}" />
+</p>
 
-<display:table name="customisation.negativeWords" id="row" requestURI="customisation/administrator/display.do" pagesize="5" class="displaytag">
-	<display:column value="${row}" titleKey="customisation.negativeWords"/>
-</display:table>
+<p>
+	<strong> <spring:message code="customisation.negativeWords" />: </strong>
+	<jstl:out value="${customisation.negativeWords}" />
+</p>
 
-<display:table name="customisation.spamWords" id="row" requestURI="customisation/administrator/display.do" pagesize="5" class="displaytag">
-	<display:column value="${row}" titleKey="customisation.spamWords"/>
-</display:table>
-
-<display:table name="customisation.languages" id="row" requestURI="customisation/administrator/display.do" pagesize="5" class="displaytag">
-	<display:column value="${row}" titleKey="customisation.languages"/>
-</display:table>
+<p>
+	<strong> <spring:message code="customisation.spamWords" />: </strong>
+	<jstl:out value="${customisation.spamWords}" />
+</p>
 
 <a href="customisation/administrator/edit.do">
 	<spring:message code="customisation.edit" />
 </a>
 <br />
-
 
 <p>
 	<a href="welcome/index.do">

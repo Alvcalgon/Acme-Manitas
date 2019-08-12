@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import services.ApplicationService;
 import services.CustomisationService;
+import services.UtilityService;
 import controllers.AbstractController;
 import domain.Application;
 
@@ -32,6 +33,9 @@ public class ApplicationCustomerController extends AbstractController {
 
 	@Autowired
 	private CustomisationService	customisationService;
+
+	@Autowired
+	private UtilityService			utilityService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -82,7 +86,7 @@ public class ApplicationCustomerController extends AbstractController {
 		ModelAndView result;
 		List<String> brandName;
 
-		brandName = (List<String>) this.customisationService.find().getCreditCardMakes();
+		brandName = this.utilityService.ListByString(this.customisationService.find().getCreditCardMakes());
 
 		result = new ModelAndView("application/edit");
 		result.addObject("application", application);

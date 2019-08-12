@@ -2128,66 +2128,12 @@
 			value="¡Bienvenidos a Acme Handy Worker! Precio, calidad y confianza en el mismo sitio" />
 		<property name="VAT" value="0.21" />
 		<property name="countryCode" value="+34" />
-		<property name="creditCardMakes">
-			<list>
-				<value>VISA</value>
-				<value>MASTER</value>
-				<value>DINNERS</value>
-				<value>AMEX</value>
-			</list>
-		</property>
+		<property name="creditCardMakes" value="VISA,MASTER,DINNERS,AMEX" />
 		<property name="timeCachedFinderResults" value="1" />
 		<property name="maxFinderResults" value="10" />
-		<property name="spamWords">
-			<list>
-				<value>sex</value>
-				<value>viagra</value>
-				<value>cialis</value>
-				<value>one million</value>
-				<value>you´ve been selected</value>
-				<value>Nigeria</value>
-				<value>sexo</value>
-				<value>un millon</value>
-				<value>ha sido seleccionado</value>
-			</list>
-		</property>
-		<property name="positiveWords">
-			<list>
-				<value>good</value>
-				<value>fantastic</value>
-				<value>excellent</value>
-				<value>great</value>
-				<value>amazing</value>
-				<value>terrific</value>
-				<value>beautiful</value>
-				<value>bien</value>
-				<value>fantastico</value>
-				<value>excelente</value>
-				<value>genial</value>
-				<value>increible</value>
-				<value>terrorifico</value>
-				<value>hermosos</value>
-			</list>
-		</property>
-		<property name="negativeWords">
-			<list>
-				<value>not</value>
-				<value>bad</value>
-				<value>horrible</value>
-				<value>average</value>
-				<value>disaster</value>
-				<value>no</value>
-				<value>mal</value>
-				<value>mediocre</value>
-				<value>desastre</value>
-			</list>
-		</property>
-		<property name="languages">
-			<list>
-				<value>es</value>
-				<value>en</value>
-			</list>
-		</property>		
+		<property name="spamWords" value="sex,viagra,cialis,one million,you´ve been selected,nigeria,sexo,un millón,ha sido seleccionado" />
+		<property name="positiveWords" value="good,fantastic,excellent,great,amazing,terrific,beautiful,bien,fantástico,excelente,genial,increible,terrorifico,hermoso" />
+		<property name="negativeWords" value="not,bad,horrible,average,disaster,no,mal,mediocre,desastre" />	
 	</bean>
 
 	<!-- CreditCards -->

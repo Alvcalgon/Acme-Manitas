@@ -1,9 +1,6 @@
 
 package services;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +30,8 @@ public class CustomisationServiceTest extends AbstractTest {
 	public void testSave() {
 		super.authenticate("admin1");
 
+		String positiveWords;
 		Customisation customisation, saved;
-		List<String> positiveWords;
 
 		customisation = this.customisationService.find();
 
@@ -42,10 +39,7 @@ public class CustomisationServiceTest extends AbstractTest {
 		customisation.setMaxFinderResults(20);
 		customisation.setCountryCode("+40");
 
-		positiveWords = new ArrayList<>(customisation.getPositiveWords());
-		positiveWords.add("Masterpiece");
-		positiveWords.add("Obra maestra");
-
+		positiveWords = customisation.getPositiveWords() + ",Obra maestra,Masterpiece";
 		customisation.setPositiveWords(positiveWords);
 
 		saved = this.customisationService.save(customisation);

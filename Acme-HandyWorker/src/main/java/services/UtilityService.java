@@ -166,6 +166,22 @@ public class UtilityService {
 		return result;
 	}
 
+	public List<String> ListByString(final String cadena) {
+		List<String> result;
+		String[] campos;
+		String word;
+
+		campos = cadena.split(",");
+
+		result = new ArrayList<String>();
+		for (final String s : campos) {
+			word = s.trim();
+			result.add(word);
+		}
+
+		return result;
+	}
+
 	// Private methods ---------------------------------------------------------
 
 	private String createRandomLetters() {
@@ -256,7 +272,7 @@ public class UtilityService {
 
 	public boolean checkIsSpamMarkAsSuspicious(final String string, final Actor actor) {
 		boolean res = false;
-		final Collection<String> spamWords = this.customisationService.find().getSpamWords();
+		final Collection<String> spamWords = this.ListByString(this.customisationService.find().getSpamWords());
 
 		for (final String sw : spamWords)
 			if (string.contains(sw)) {

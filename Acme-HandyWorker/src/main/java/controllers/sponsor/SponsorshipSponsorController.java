@@ -26,6 +26,7 @@ import services.CustomisationService;
 import services.SponsorService;
 import services.SponsorshipService;
 import services.TutorialService;
+import services.UtilityService;
 import controllers.AbstractController;
 import domain.Customisation;
 import domain.Sponsor;
@@ -47,6 +48,9 @@ public class SponsorshipSponsorController extends AbstractController {
 
 	@Autowired
 	private SponsorService			sponsorService;
+
+	@Autowired
+	private UtilityService			utilityService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -142,7 +146,7 @@ public class SponsorshipSponsorController extends AbstractController {
 		Customisation customisation;
 
 		customisation = this.customisationService.find();
-		creditCardMakes = customisation.getCreditCardMakes();
+		creditCardMakes = this.utilityService.ListByString(customisation.getCreditCardMakes());
 
 		result = new ModelAndView("sponsorship/edit");
 		result.addObject("sponsorship", sponsorship);

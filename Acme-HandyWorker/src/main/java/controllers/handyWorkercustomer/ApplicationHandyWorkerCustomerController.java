@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import security.LoginService;
 import services.ApplicationService;
 import services.CustomisationService;
+import services.UtilityService;
 import controllers.AbstractController;
 import domain.Application;
 import domain.Customisation;
@@ -36,6 +37,9 @@ public class ApplicationHandyWorkerCustomerController extends AbstractController
 
 	@Autowired
 	private CustomisationService	customisationService;
+
+	@Autowired
+	private UtilityService			utilityService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -82,7 +86,7 @@ public class ApplicationHandyWorkerCustomerController extends AbstractController
 		double vat;
 
 		customisation = this.customisationService.find();
-		creditCardMakes = customisation.getCreditCardMakes();
+		creditCardMakes = this.utilityService.ListByString(customisation.getCreditCardMakes());
 		vat = this.customisationService.find().getVAT();
 
 		result = new ModelAndView("application/edit");

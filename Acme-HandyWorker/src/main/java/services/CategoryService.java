@@ -2,6 +2,7 @@
 package services;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -34,9 +35,6 @@ public class CategoryService {
 	// Supporting services -----------------------------
 	@Autowired
 	private CategoryTranslationService	categoryTranslationService;
-
-	@Autowired
-	private CustomisationService		customisatinoService;
 
 	@Autowired
 	private FixUpTaskService			fixUpTaskService;
@@ -87,7 +85,7 @@ public class CategoryService {
 
 	public Category save(final Category category) {
 		Assert.notNull(category);
-		Assert.isTrue(category.getCategoriesTranslations().size() == this.customisatinoService.find().getLanguages().size() && this.validLanguages(category));
+		Assert.isTrue(this.validLanguages(category));
 		this.checkValidParentCategory(category);
 
 		Category root, result, parent_category, old_category, old_parent_category;
@@ -325,11 +323,11 @@ public class CategoryService {
 		final Map<String, Integer> map;
 		Collection<CategoryTranslation> categoriesTranslations;
 		boolean result;
-		final Collection<String> languages;
+		final List<String> languages;
 		Integer valor;
 
 		map = new HashMap<String, Integer>();
-		languages = this.customisatinoService.find().getLanguages();
+		languages = Arrays.asList("en", "es");
 		categoriesTranslations = category.getCategoriesTranslations();
 		result = true;
 		valor = 0;

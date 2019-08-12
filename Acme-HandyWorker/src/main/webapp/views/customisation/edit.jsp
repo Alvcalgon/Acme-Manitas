@@ -72,7 +72,7 @@
 	<form:label path="creditCardMakes">
 		<spring:message code="customisation.creditCardMakes" />:
 	</form:label>
-	<form:textarea path="creditCardMakes" />
+	<form:input path="creditCardMakes" />
 	<form:errors cssClass="error" path="creditCardMakes" />
 	<br/>
 	
@@ -95,13 +95,6 @@
 	</form:label>
 	<form:input path="spamWords" />
 	<form:errors cssClass="error" path="spamWords" />
-	<br/>
-	
-	<form:label path="languages">
-		<spring:message code="customisation.languages" />:
-	</form:label>
-	<form:input path="languages" />
-	<form:errors cssClass="error" path="languages" />
 	<br/>
 	
 	<input type="submit" name="save" value="<spring:message code="customisation.save" />" />

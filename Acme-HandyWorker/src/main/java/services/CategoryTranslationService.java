@@ -20,10 +20,8 @@ public class CategoryTranslationService {
 	@Autowired
 	private CategoryTranslationRepository	categoryTranslationRepository;
 
-	// Supporting services -----------------------------
-	@Autowired
-	private CustomisationService			customisationService;
 
+	// Supporting services -----------------------------
 
 	// Constructors ------------------------------------
 	public CategoryTranslationService() {
@@ -58,7 +56,7 @@ public class CategoryTranslationService {
 
 	protected CategoryTranslation save(final CategoryTranslation categoryTranslation) {
 		Assert.notNull(categoryTranslation);
-		Assert.isTrue(this.validLanguage(categoryTranslation));
+		Assert.isTrue(categoryTranslation.getLanguage().equals("en") || categoryTranslation.getLanguage().equals("es"));
 
 		CategoryTranslation result;
 
@@ -81,15 +79,6 @@ public class CategoryTranslationService {
 		result = this.categoryTranslationRepository.findByLanguageCategory(categoryId, language);
 
 		return result;
-	}
-
-	// Private methods ---------------------------------
-	private boolean validLanguage(final CategoryTranslation categoryTranslation) {
-		Collection<String> languages;
-
-		languages = this.customisationService.find().getLanguages();
-
-		return languages.contains(categoryTranslation.getLanguage());
 	}
 
 }

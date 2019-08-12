@@ -1,11 +1,8 @@
 
 package domain;
 
-import java.util.Collection;
-
 import javax.persistence.Access;
 import javax.persistence.AccessType;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
@@ -30,23 +27,22 @@ public class Customisation extends DomainEntity {
 
 	// Atributes
 
-	private String				systemName;
-	private String				banner;
-	private String				welcomeMessageEn;
-	private String				welcomeMessageSp;
-	private double				VAT;
-	private String				countryCode;
-	private Collection<String>	creditCardMakes;
-	private int					timeCachedFinderResults;
-	private int					maxFinderResults;
-	private Collection<String>	spamWords;
-	private Collection<String>	positiveWords;
-	private Collection<String>	negativeWords;
-	private Collection<String>	languages;
+	private String	systemName;
+	private String	banner;
+	private String	welcomeMessageEn;
+	private String	welcomeMessageSp;
+	private double	VAT;
+	private String	countryCode;
+	private String	creditCardMakes;
+	private int		timeCachedFinderResults;
+	private int		maxFinderResults;
+	private String	spamWords;
+	private String	positiveWords;
+	private String	negativeWords;
 
 
 	@NotBlank
-	@SafeHtml(whitelistType = SafeHtml.WhiteListType.NONE)
+	@SafeHtml
 	public String getSystemName() {
 		return this.systemName;
 	}
@@ -66,7 +62,7 @@ public class Customisation extends DomainEntity {
 	}
 
 	@NotBlank
-	@SafeHtml(whitelistType = SafeHtml.WhiteListType.NONE)
+	@SafeHtml
 	public String getWelcomeMessageEn() {
 		return this.welcomeMessageEn;
 	}
@@ -76,7 +72,7 @@ public class Customisation extends DomainEntity {
 	}
 
 	@NotBlank
-	@SafeHtml(whitelistType = SafeHtml.WhiteListType.NONE)
+	@SafeHtml
 	public String getWelcomeMessageSp() {
 		return this.welcomeMessageSp;
 	}
@@ -107,12 +103,12 @@ public class Customisation extends DomainEntity {
 
 	@NotEmpty
 	@NotNull
-	@ElementCollection
-	public Collection<String> getCreditCardMakes() {
+	@SafeHtml
+	public String getCreditCardMakes() {
 		return this.creditCardMakes;
 	}
 
-	public void setCreditCardMakes(final Collection<String> creditCardMakes) {
+	public void setCreditCardMakes(final String creditCardMakes) {
 		this.creditCardMakes = creditCardMakes;
 	}
 
@@ -135,43 +131,32 @@ public class Customisation extends DomainEntity {
 	}
 
 	@NotNull
-	@ElementCollection
-	public Collection<String> getSpamWords() {
+	@SafeHtml
+	public String getSpamWords() {
 		return this.spamWords;
 	}
 
-	public void setSpamWords(final Collection<String> spamWords) {
+	public void setSpamWords(final String spamWords) {
 		this.spamWords = spamWords;
 	}
 
 	@NotNull
-	@ElementCollection
-	public Collection<String> getPositiveWords() {
+	@SafeHtml
+	public String getPositiveWords() {
 		return this.positiveWords;
 	}
 
-	public void setPositiveWords(final Collection<String> positiveWords) {
+	public void setPositiveWords(final String positiveWords) {
 		this.positiveWords = positiveWords;
 	}
 
 	@NotNull
-	@ElementCollection
-	public Collection<String> getNegativeWords() {
+	@SafeHtml
+	public String getNegativeWords() {
 		return this.negativeWords;
 	}
 
-	public void setNegativeWords(final Collection<String> negativeWords) {
+	public void setNegativeWords(final String negativeWords) {
 		this.negativeWords = negativeWords;
 	}
-
-	@NotEmpty
-	@ElementCollection
-	public Collection<String> getLanguages() {
-		return this.languages;
-	}
-
-	public void setLanguages(final Collection<String> languages) {
-		this.languages = languages;
-	}
-
 }
